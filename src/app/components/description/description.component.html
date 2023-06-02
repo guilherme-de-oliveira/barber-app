@@ -1,0 +1,47 @@
+
+<h2>Hello, my name is Guilherme de Oliveira</h2>
+
+<p>
+    I'm a Full-Stack developer based in São Paulo, Brazil. &nbsp;
+    <img src="../../../assets/images/brasil.png" style="width: 25px; vertical-align: middle;"/>
+</p>
+<p>
+    I've given my best in projects related to <b>ETL, Data Warehouse, Asset Management</b> and <b>Billing</b> using several technologies and
+    tools.
+</p>
+<p>
+    Become a <b>JavaScript Expert</b> is my currently goal.
+</p>
+<p> I have experience in many differents languages, but my strength is <b>Angular</b> and <b>Node.js</b></p>
+<div class="grid">
+    <div class="sm:col-12 md:col-4">
+        <h4>Front-end</h4>
+        <ul *ngFor="let item of frontEnd">
+            <li style="padding-top: 0.5em;">
+                <div class="flex align-items-center">
+                    <img src="../../../assets/images/{{item.icon}}.png" style="width: 25px;"/>&nbsp;&nbsp;{{item.name}}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="sm:col-12 md:col-4">
+        <h4>Back-end and Databases</h4>
+        <ul *ngFor="let item of backEnd">
+            <li style="padding-top: 0.5em;">
+                <div class="flex align-items-center">
+                    <img src="../../../assets/images/{{item.icon}}.png" style="width: 25px;"/>&nbsp;&nbsp;{{item.name}}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="sm:col-12 md:col-4">
+        <h4>Systems and middlewares</h4>
+        <ul *ngFor="let item of system">
+             <li style="padding-top: 0.5em;">
+                <div class="flex align-items-center">
+                    <img src="../../../assets/images/{{item.icon}}.png" style="width: 25px;"/>&nbsp;&nbsp;{{item.name}}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

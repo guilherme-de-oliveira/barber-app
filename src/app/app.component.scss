@@ -1,0 +1,31 @@
+$font-family: "Montserrat", sans-serif;
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.content {
+    margin: 2% 15% 1% 15%;
+    font-family: $font-family;
+    font-weight: 300;
+    line-height: 1.5;
+    min-height: 22em;
+    margin-top: 5em;
+    margin-bottom: 3em;
+}
+
+footer {
+    font-family: $font-family;
+    color: #121212;
+    background-color: #CE93D8;
+    text-align: center;
+    padding: 30px 0 30px;
+}

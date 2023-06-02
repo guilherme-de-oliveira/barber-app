@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "title": "Github",
+            "label": "guilherme-de-oliveira",
+            "icon": "pi pi-fw pi-github",
+            "url": "https://github.com/guilherme-de-oliveira"
+        },
+        {
+            "title": "Linkedin",
+            "label": "guilherme-h-de-oliveira",
+            "icon": "pi pi-fw pi-linkedin",
+            "url": "https://www.linkedin.com/in/guilherme-h-de-oliveira"
+        },
+        {
+            "title": "Email",
+            "label": "guilherme.h.de.oliveira@outlook.com",
+            "icon": "pi pi-fw pi-id-card",
+            "url": "https://www.linkedin.com/in/guilherme-h-de-oliveira"
+        },
+        {
+            "title": "Medium",
+            "label": "@guilherme-de-oliveira",
+            "icon": "pi pi-fw pi-pencil",
+            "url": "https://medium.com/@guilherme-de-oliveira"
+        }
+    ]
+}
