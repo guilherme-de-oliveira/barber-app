@@ -2,18 +2,9 @@
     <ng-template pTemplate="item" let-item let-i="index"></ng-template>
     <ng-template pTemplate="end">
         <div class="grid">
-            <div class="md:inline-flex sm:flex-1 sm:col-4 md:col-4 lg:col-3 ">
-                <p-button styleClass="p-button-text" (click)="openUrl(contactItems[3].url)">
-                    <i class="fa-brands fa-medium" style="color: #ffffff;"></i>
-                </p-button>
+            <div class="md:inline-flex sm:flex-1 sm:col-2 md:col-2 lg:col-3 ">
+                <button pButton pRipple type="button" label="Login/Signup" class="p-button-text" routerLink="login"></button>
             </div>
-            <div class="hidden md:inline-flex sm:flex-1 h-2rem sm:col-8 md:col-8 lg:col-9">
-                <p-button icon="pi pi-github" styleClass="p-button-text" (click)="openUrl(contactItems[0].url)"></p-button>
-            </div>
-            <div class="md:inline-flex sm:flex-1 sm:col-4 md:col-4 lg:col-3 ">
-                <p-button icon="pi pi-linkedin" styleClass="p-button-text" (click)="openUrl(contactItems[1].url)"></p-button>
-            </div>
-
         </div>
     </ng-template>
 </p-menubar>
