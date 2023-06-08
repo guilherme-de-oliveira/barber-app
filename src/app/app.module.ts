@@ -24,8 +24,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { PasswordModule } from 'primeng/password';
+import { TabViewModule } from 'primeng/tabview';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { BarberFormComponent } from './components/login/barber-form/barber-form.component';
+import { ClientFormComponent } from './components/login/client-form/client-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,9 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     LoginComponent,
     BoardAdminComponent,
     NavMenuComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    BarberFormComponent,
+    ClientFormComponent
   ],
   imports: [
     RouterModule.forRoot([]),
@@ -55,7 +61,9 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     SplitButtonModule,
     PasswordModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    TabViewModule,
+    AutoCompleteModule
   ],
   providers: [authInterceptorProviders ],
   bootstrap: [AppComponent]

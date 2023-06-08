@@ -2,12 +2,16 @@
     <ng-template pTemplate="item" let-item let-i="index"></ng-template>
     <ng-template pTemplate="end">
         <div class="grid">
-            <div class="md:inline-flex sm:flex-1 sm:col-2 md:col-2 lg:col-3 ">
+            <div *ngIf="isEmptyObject(currentUser); else loggedOut" class="md:inline-flex sm:flex-1 sm:col-2 md:col-2 lg:col-3 ">
                 <button pButton pRipple type="button" label="Login/Signup" class="p-button-text" routerLink="login"></button>
             </div>
+            <ng-template #loggedOut class="md:inline-flex sm:flex-1 sm:col-2 md:col-2 lg:col-3 ">
+                <p-button label="Log out" styleClass="p-button-link" (onClick)="logout()"></p-button>
+            </ng-template>
         </div>
     </ng-template>
 </p-menubar>
 <header>
-    <h1>Guilherme<br> <span>[ Full-stack Developer ]</span></h1>
+    <img src="../../../assets/images/logo-omega.png" style="width: 15em;"/>
+    <!-- <h1>Guilherme<br> <span>[ Full-stack Developer ]</span></h1> -->
 </header>

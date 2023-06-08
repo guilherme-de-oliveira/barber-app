@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'main', component: DescriptionComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: BoardAdminComponent },
+  { path: 'barbershop', component: BoardAdminComponent },
   { path: 'user', component: BoardUserComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

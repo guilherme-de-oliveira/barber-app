@@ -1,31 +1,33 @@
-import { Inject, Component, LOCALE_ID, Output, EventEmitter } from '@angular/core';
+import { Inject, Component, LOCALE_ID, Output, EventEmitter, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import contacts from '../../../assets/contacts.json';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.scss']
 })
-export class NavMenuComponent {
+export class NavMenuComponent implements OnInit{
   @Output() outputFromChild : EventEmitter<string> = new EventEmitter();
   contactItems = contacts.data;
   // Menu Items
   about: string = `About`;
-  work: string = `Work`;
-  experiment: string = `Projects`;
-  configPlaceHolder: string = `Config`;
   contact: string = `Contact`;
   items: MenuItem[] = [
-    { label: `${this.about}`, icon: 'pi pi-fw pi-home', command: () => { this.sendScrollTo("description")}},
-    { label: `${this.work}`, icon: 'pi pi-fw pi-file', command: () => { this.sendScrollTo("experience")} },
-    { label: `${this.experiment}`, icon: 'pi pi-fw pi-pencil', command: () => { this.sendScrollTo("experiment")} },
+    { label: `${this.about}`, icon: 'pi pi-fw pi-home', routerLink: '/main'},
     { label: `${this.contact}`, icon: 'pi pi-fw pi-users', command: () => { this.sendScrollTo("contact")} },
   ];
+  currentUser: any;
 
   constructor(
-    @Inject(LOCALE_ID) public activeLocale: string
+    private token: TokenStorageService,
+    @Inject(LOCALE_ID) public activeLocale: string,
+    private tokenStorageService: TokenStorageService
   ) { }
+  ngOnInit(): void {
+    this.currentUser = this.token.getUser();
+  }
 
   //  @TODO
   changeLocale(locale: string) {
@@ -39,5 +41,14 @@ export class NavMenuComponent {
 
   openUrl(url: string) {
     window.open(url, '_blank')
+  }
+
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
+  }
+
+  isEmptyObject(obj: any) {
+    return JSON.stringify(obj) === '{}'
   }
 }
