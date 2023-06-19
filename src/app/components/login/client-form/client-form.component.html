@@ -1,10 +1,10 @@
 <form *ngIf="!isSuccessful" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="" *ngIf="formType == 'login'; else elseBlock">
-        <h3>Log in as Client</h3>
+        <h3>Log in as <span class="text-primary">Client</span></h3>
     </div>
     <ng-template #elseBlock>
         <div class="">
-            <h3>Sign Up as Client</h3>
+            <h3>Sign Up as <span class="text-primary">Client</span></h3>
         </div>
     </ng-template>
     <div class="field">
