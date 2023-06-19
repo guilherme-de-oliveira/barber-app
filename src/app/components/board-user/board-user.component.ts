@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
+import {SelectItem} from 'primeng/api';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +13,12 @@ export class BoardUserComponent implements OnInit {
   currentUser: any;
   content?: string;
   searchByName: string = '';
-  barbershops: any;
+  barbershops:any  = [];
+  barbershopss$: any;
+  sortOrder: number = 1;
+  sortField: string = 'username';
+  sortOptions: SelectItem[] = [];
+  sortKey: SelectItem = {label: 'Price Low to High', value: 'price'};
 
   constructor(
     private token: TokenStorageService,
@@ -21,10 +27,16 @@ export class BoardUserComponent implements OnInit {
   
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
-    this.barbershops = this.userService.barbershops$?.subscribe((data) => {
+    this.barbershopss$ = this.userService.barbershops$;
+    this.userService.barbershops$?.subscribe((data) => {
       console.log(data)
       this.barbershops = data;
     });
+
+    this.sortOptions = [
+      {label: 'Name Asc', value: '!username'},
+      {label: 'Name Desc', value: 'username'}
+    ];
 
     // this.userService.getPublicContent().subscribe({
     //   next: data => {
@@ -51,4 +63,17 @@ export class BoardUserComponent implements OnInit {
     console.log(query)
     this.userService.search(query.target.value);
   }
+
+  onSortChange(event: any) {
+    let value = event.value;
+
+    if (value.indexOf('!') === 0) {
+        this.sortOrder = -1;
+        this.sortField = value.substring(1, value.length);
+    }
+    else {
+        this.sortOrder = 1;
+        this.sortField = value;
+    }
+}
 }

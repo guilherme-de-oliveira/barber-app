@@ -33,6 +33,7 @@ export class UserService {
   // }
 
   search(query: string) {
+    console.log('searcj')
     this.subject.next(query);
   }
 }

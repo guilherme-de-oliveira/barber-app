@@ -1,15 +1,57 @@
 <div class="container" *ngIf="!isEmptyObject(currentUser); else loggedOut">
     <h4>Find a Barber:</h4>
-    <span class="p-input-icon-left">
-        <i class="pi pi-search"></i>
-        <input type="text" pInputText placeholder="Search" (keyup)="search($event)" />
-    </span>
 
-    <div class="list" *ngFor="let barber of barbershops">
+    <!-- <div class="list" *ngFor="let barber of barbershops">
         <a class="list-item">{{ barber.username }}</a>
         <a *ngIf="barber.message" class="list-item">{{ barber.message }}</a>
-    </div>
-    
+    </div> -->
+
+    <!-- <div class="list" *ngFor="let barber of barbershopss$ | async">
+        <a class="list-item">{{ barber.username }}</a>
+        <a *ngIf="barber.message" class="list-item">{{ barber.message }}</a>
+    </div> -->
+
+    <p-dataView #dv [value]="barbershops" key="email" [paginator]="true" [rows]="9" layout="grid">
+        <ng-template pTemplate="header">
+            <div class="flex flex-column md:flex-row md:justify-content-between">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input type="text" pInputText placeholder="Search" (keyup)="search($event)" />
+                </span>
+                <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Name"
+                    (onChange)="onSortChange($event)" styleClass="mb-2 md:mb-0"></p-dropdown>
+                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+            </div>
+        </ng-template>
+        <ng-template let-barber pTemplate="listItem">
+            <div class="col-12">
+                <div class="product-list-item">
+                    <img [src]="'assets/images/barbershop-logo.jpg'"
+                    [alt]="barber.username"/>
+                    <div class="product-list-detail">
+                        <div class="product-name">{{barber.username}}</div>
+                        <div class="product-phoneNumber">{{barber.phoneNumber}}</div>
+                    </div>
+                    <div class="product-list-action">
+                        <p-button icon="pi pi-eye" label="Show more" [routerLink]="['/barber-profile/', barber.email]"></p-button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template let-barber pTemplate="gridItem">
+            <div class="col-12 md:col-4">
+                <div class="product-grid-item card">
+                    <div class="product-grid-item-content">
+                        <img [src]="'assets/images/barbershop-logo.jpg'"
+                            [alt]="barber.username"/>
+                        <div class="product-name">{{barber.username}}</div>
+                        <div class="product-phoneNumber">{{barber.phoneNumber}}</div>
+                        <p-button icon="pi pi-eye" label="Show more" [routerLink]="['/barber-profile/', barber.email]"></p-button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
 </div>
 
 

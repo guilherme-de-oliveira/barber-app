@@ -26,10 +26,15 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { PasswordModule } from 'primeng/password';
 import { TabViewModule } from 'primeng/tabview';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { DataViewModule } from 'primeng/dataview';
+import { ChipModule } from 'primeng/chip';
+import { GalleriaModule } from 'primeng/galleria';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { BarberFormComponent } from './components/login/barber-form/barber-form.component';
 import { ClientFormComponent } from './components/login/client-form/client-form.component';
+import { BarberProfileComponent } from './components/barber-profile/barber-profile.component';
+import { BaberReservationComponent } from './components/baber-reservation/baber-reservation.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,9 @@ import { ClientFormComponent } from './components/login/client-form/client-form.
     NavMenuComponent,
     BoardUserComponent,
     BarberFormComponent,
-    ClientFormComponent
+    ClientFormComponent,
+    BarberProfileComponent,
+    BaberReservationComponent
   ],
   imports: [
     RouterModule.forRoot([]),
@@ -63,7 +70,10 @@ import { ClientFormComponent } from './components/login/client-form/client-form.
     HttpClientModule,
     ReactiveFormsModule,
     TabViewModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    DataViewModule,
+    ChipModule,
+    GalleriaModule
   ],
   providers: [authInterceptorProviders ],
   bootstrap: [AppComponent]
