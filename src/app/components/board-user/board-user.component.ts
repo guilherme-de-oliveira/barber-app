@@ -55,7 +55,7 @@ export class BoardUserComponent implements OnInit {
     window.location.reload();
   }
 
-  isEmptyObject(obj: any) {
+  isLogged(obj: any) {
     return JSON.stringify(obj) === '{}'
   }
 

@@ -13,10 +13,14 @@ export class NavMenuComponent implements OnInit{
   contactItems = contacts.data;
   // Menu Items
   about: string = `About`;
+  user: string = `I'm looking for barbers`;
+  barbershop: string = `I'm a barber`;
   contact: string = `Contact`;
   items: MenuItem[] = [
     { label: `${this.about}`, icon: 'pi pi-fw pi-home', routerLink: '/main'},
-    { label: `${this.contact}`, icon: 'pi pi-fw pi-users', command: () => { this.sendScrollTo("contact")} },
+    { label: `${this.user}`, icon: 'pi pi-fw pi-shopping-cart', routerLink: '/user'},
+    { label: `${this.barbershop}`, icon: 'pi pi-fw pi-users', routerLink: '/barbershop'},
+    { label: `${this.contact}`, icon: 'pi pi-fw pi-phone', command: () => { this.sendScrollTo("contact")} },
   ];
   currentUser: any;
 
