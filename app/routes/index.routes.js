@@ -27,6 +27,15 @@ module.exports = function (app) {
         res.status(200).send(response);
     });
 
+    // app.put("/api/barber", [authJwt.verifyToken], async(req, res) => {
+    //     console.log('PUTT');
+    //     console.log(req.query);
+    //     // const response = await barberController.getByEmail(req.query.email);
+    //     console.log('response: ');
+    //     // console.log(response);
+    //     res.status(200).send(response);
+    // });
+
 
     // app.get(
     //     "/api/admin",

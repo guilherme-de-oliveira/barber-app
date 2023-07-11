@@ -29,8 +29,17 @@ export class NavMenuComponent implements OnInit{
     @Inject(LOCALE_ID) public activeLocale: string,
     private tokenStorageService: TokenStorageService
   ) { }
+  
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
+
+    this.getData();
+    console.log('eita')
+  }
+
+  async getData() {
+    console.log('eita2')
+    await setTimeout(()=> console.log('eita 1'), 0)
   }
 
   //  @TODO

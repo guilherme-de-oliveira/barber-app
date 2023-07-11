@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 require('./app/routes/auth.routes')(app);
-require('./app/routes/user.routes')(app);
+require('./app/routes/index.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

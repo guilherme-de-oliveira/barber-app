@@ -119,7 +119,8 @@ export class BarberFormComponent implements OnInit{
         this.roles = this.tokenStorage.getUser().roles;
         
         this.router.navigate(['barbershop']);
-        this.reloadPage();
+        console.log('barbershopppp')
+        // this.reloadPage();
       },
       error: err => {
         this.errorMessage = err.error.message;

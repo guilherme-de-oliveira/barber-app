@@ -31,6 +31,11 @@ export class BoardUserComponent implements OnInit {
     this.userService.barbershops$?.subscribe((data) => {
       console.log(data)
       this.barbershops = data;
+
+      if (this.barbershops[0].message) {
+        this.barbershops = [];
+        console.log('heijhks')
+      }
     });
 
     this.sortOptions = [

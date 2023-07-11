@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SkillsDescription } from 'src/app/interfaces/menu-titles';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-description',
@@ -7,7 +8,7 @@ import { SkillsDescription } from 'src/app/interfaces/menu-titles';
   styleUrls: ['./description.component.scss']
 })
 
-export class DescriptionComponent {
+export class DescriptionComponent implements OnInit{
   frontEnd: Array<SkillsDescription> = [
     {name: "JavaScript", icon: "javascript"},
     {name: "TypeScript", icon: "typescript"},
@@ -30,4 +31,9 @@ export class DescriptionComponent {
     {name: "Jenkins", icon: "jenkins"},
     {name: "Cloud", icon: "cloud"},
   ];
+  constructor(private userService: UserService) {}
+  ngOnInit(): void {
+    
+  }
+  
 }

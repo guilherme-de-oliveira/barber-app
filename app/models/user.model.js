@@ -7,7 +7,11 @@ const User = mongoose.model(
     email: String,
     phoneNumber: String,
     password: String,
-    role: String 
+    role: String,
+    img: [{
+      data: Buffer,
+      contentType: String
+    }]
   })
 );
 
