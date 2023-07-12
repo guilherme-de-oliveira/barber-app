@@ -1,15 +1,4 @@
-<div class="card" *ngIf="!isLogged(currentUser); else loggedOut">
-
-
-    <!-- <div class="list" *ngFor="let barber of barbershops">
-        <a class="list-item">{{ barber.username }}</a>
-        <a *ngIf="barber.message" class="list-item">{{ barber.message }}</a>
-    </div> -->
-
-    <!-- <div class="list" *ngFor="let barber of barbershopss$ | async">
-        <a class="list-item">{{ barber.username }}</a>
-        <a *ngIf="barber.message" class="list-item">{{ barber.message }}</a>
-    </div> -->
+<div id="board-user" class="card" >
     <div class="card" style="padding-left: 0px;">
         <h2>Find a Barber near you</h2>
         <span class="p-input-icon-left">
@@ -18,7 +7,8 @@
         </span>
     </div>
     
-    <p-dataView #dv [value]="barbershops" key="email" [paginator]="true" [rows]="9" layout="grid">
+    <ng-template *ngIf="!userNotFound; else elseBlock"></ng-template>
+    <p-dataView #dv *ngIf="barbershops.length > 0;" [value]="barbershops" key="email" [paginator]="true" [rows]="9" layout="grid">
             <ng-template pTemplate="header">
                 <div class="flex flex-column md:flex-row md:justify-content-between">
 
@@ -37,7 +27,7 @@
                             <div class="product-phoneNumber">{{barber.phoneNumber}}</div>
                         </div>
                         <div class="product-list-action">
-                            <p-button icon="pi pi-eye" label="Show more" [routerLink]="['/barber-profile/', barber.email]"></p-button>
+                            <p-button icon="pi pi-eye" label="Show more" [routerLink]="['/barber-profile/', Stringfy(barber)]"></p-button>
                         </div>
                     </div>
                 </div>
@@ -50,17 +40,17 @@
                                 [alt]="barber.username"/>
                             <div class="product-name">{{barber.username}}</div>
                             <div class="product-phoneNumber">{{barber.phoneNumber}}</div>
-                            <p-button icon="pi pi-eye" label="Show more" [routerLink]="['/barber-profile/', barber.email]"></p-button>
+                            <p-button icon="pi pi-eye" label="Show more" [routerLink]="['/barber-profile/', Stringfy(barber)]"></p-button>
                         </div>
                     </div>
                 </div>
-            </ng-template>    <ng-template #elseBlock pTemplate="emptymessage">
+            </ng-template>
+    </p-dataView>
+    <ng-template #elseBlock pTemplate="emptymessage">
         <tr>
-            <td colspan="7">No customers found.</td>
+            <span>No customers found.</span>
         </tr>
     </ng-template>
-    </p-dataView>
-
 </div>
 
 

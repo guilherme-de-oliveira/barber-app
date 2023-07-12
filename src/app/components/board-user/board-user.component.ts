@@ -19,7 +19,7 @@ export class BoardUserComponent implements OnInit {
   sortField: string = 'username';
   sortOptions: SelectItem[] = [];
   sortKey: SelectItem = {label: 'Price Low to High', value: 'price'};
-
+  userNotFound: boolean = false;
   constructor(
     private token: TokenStorageService,
     private userService: UserService,
@@ -31,10 +31,12 @@ export class BoardUserComponent implements OnInit {
     this.userService.barbershops$?.subscribe((data) => {
       console.log(data)
       this.barbershops = data;
-
+      this.userNotFound = false;
+      
       if (this.barbershops[0].message) {
         this.barbershops = [];
         console.log('heijhks')
+        this.userNotFound = true;
       }
     });
 
@@ -80,5 +82,9 @@ export class BoardUserComponent implements OnInit {
         this.sortOrder = 1;
         this.sortField = value;
     }
-}
+  }
+
+  Stringfy(obj: any): String | null {
+    return JSON.stringify(obj)
+  }
 }

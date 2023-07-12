@@ -35,6 +35,7 @@ import { BarberFormComponent } from './components/login/barber-form/barber-form.
 import { ClientFormComponent } from './components/login/client-form/client-form.component';
 import { BarberProfileComponent } from './components/barber-profile/barber-profile.component';
 import { BaberReservationComponent } from './components/baber-reservation/baber-reservation.component';
+import { BarberDescriptionComponent } from './components/barber-description/barber-description.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { BaberReservationComponent } from './components/baber-reservation/baber-
     BarberFormComponent,
     ClientFormComponent,
     BarberProfileComponent,
-    BaberReservationComponent
+    BaberReservationComponent,
+    BarberDescriptionComponent
   ],
   imports: [
     RouterModule.forRoot([]),

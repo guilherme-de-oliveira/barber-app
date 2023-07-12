@@ -7,14 +7,16 @@ import { BoardUserComponent } from './components/board-user/board-user.component
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BarberProfileComponent } from './components/barber-profile/barber-profile.component';
 import { BaberReservationComponent } from './components/baber-reservation/baber-reservation.component';
+import { BarberDescriptionComponent } from './components/barber-description/barber-description.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'main', component: DescriptionComponent },
+  { path: 'barber', component: BarberDescriptionComponent },
   { path: 'login', component: LoginComponent },
   { path: 'barbershop', component: BoardAdminComponent },
   { path: 'user', component: BoardUserComponent },
-  { path: 'barber-profile/:email', component: BarberProfileComponent },
+  { path: 'barber-profile/:barber', component: BarberProfileComponent },
   { path: 'barber-reservation/:email', component: BaberReservationComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

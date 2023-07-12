@@ -2,6 +2,7 @@ import { Inject, Component, LOCALE_ID, Output, EventEmitter, OnInit } from '@ang
 import { MenuItem } from 'primeng/api';
 import contacts from '../../../assets/contacts.json';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -19,7 +20,7 @@ export class NavMenuComponent implements OnInit{
   items: MenuItem[] = [
     { label: `${this.about}`, icon: 'pi pi-fw pi-home', routerLink: '/main'},
     { label: `${this.user}`, icon: 'pi pi-fw pi-shopping-cart', routerLink: '/user'},
-    { label: `${this.barbershop}`, icon: 'pi pi-fw pi-users', routerLink: '/barbershop'},
+    { label: `${this.barbershop}`, icon: 'pi pi-fw pi-users', routerLink: '/barber'},
     { label: `${this.contact}`, icon: 'pi pi-fw pi-phone', command: () => { this.sendScrollTo("contact")} },
   ];
   currentUser: any;
@@ -27,8 +28,9 @@ export class NavMenuComponent implements OnInit{
   constructor(
     private token: TokenStorageService,
     @Inject(LOCALE_ID) public activeLocale: string,
-    private tokenStorageService: TokenStorageService
-  ) { }
+    private tokenStorageService: TokenStorageService,
+
+  ) {}
   
   ngOnInit(): void {
     this.currentUser = this.token.getUser();

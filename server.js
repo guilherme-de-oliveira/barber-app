@@ -1,11 +1,12 @@
 const express = require("express");
+const functions = require('firebase-functions');
 const cors = require("cors");
 const path = require('path')
 const app = express();
 
-const db = require("./app/models");
+const db = require("./functions/app/models");
 // const Role = db.role;
-const dbConfig = require("./app/config/db.config");
+const dbConfig = require("./functions/app/config/db.config");
 var corsOptions = {
   origin: "http://localhost:4200"
 };
@@ -19,8 +20,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // routes
-require('./app/routes/auth.routes')(app);
-require('./app/routes/index.routes')(app);
+require('./functions/app/routes/auth.routes')(app);
+require('./functions/app/routes/index.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
@@ -41,11 +42,13 @@ const allowedExt = [
 
 app.use('/', (req, res) =>  {
   if (allowedExt.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-    res.sendFile(path.resolve(`dist/guilherme-de-oliveira.github.io/${req.url}`));
+    res.sendFile(path.resolve(`public/${req.url}`));
   } else {
-    res.sendFile(path.resolve('dist/guilherme-de-oliveira.github.io/index.html'));
+    res.sendFile(path.resolve('public/index.html'));
   }
 });
+
+exports.app = functions.https.onRequest(app);
 
 db.mongoose.set("strictQuery", true);
 db.mongoose
