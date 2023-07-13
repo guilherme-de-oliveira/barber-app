@@ -7,7 +7,7 @@
             <h3>Sign Up as <span class="text-primary">Client</span></h3>
         </div>
     </ng-template>
-    <div class="field">
+    <div class="field text-center">
         <!-- Email -->
         <label for="email" class="block">Email</label>
         <span class="p-input-icon-right">
@@ -26,7 +26,7 @@
         </span>
     </div>
 
-    <div *ngIf="formType == 'signup'" class="field">
+    <div *ngIf="formType == 'signup'" class="field text-center">
         <!-- Client Name -->
         <label for="clientName" class="block">Name</label>
         <span class="p-input-icon-right">
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div *ngIf="formType == 'signup'" class="field">
+    <div *ngIf="formType == 'signup'" class="field text-center">
         <!-- Phone number -->
         <label for="phoneNumber" class="block">Phone number</label>
         <span class="p-input-icon-right">
@@ -64,7 +64,7 @@
         </span>
     </div>
 
-    <div class="field">
+    <div class="field text-center">
         <!-- <label for="password" class="block">Password</label>
         <p-password #password [feedback]="formType == 'signup'" [toggleMask]="true" name="password"
             formControlName="password" [ngClass]="{'ng-invalid ng-dirty': submitted && f['password'].errors}"></p-password> -->

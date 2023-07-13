@@ -43,6 +43,16 @@ export class BarberFormComponent implements OnInit{
       this.router.navigate(['barbershop'])
     }
 
+    this.setFormRules();
+  }
+
+  // @TODO - move to a shared
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
+  
+  // @TODO - move to a shared
+  setFormRules() {
     // Set up form rules
     this.form = this.formBuilder.group(
       {
@@ -78,11 +88,6 @@ export class BarberFormComponent implements OnInit{
     );
   }
 
-  get f(): { [key: string]: AbstractControl } {
-    // console.log(this.form.controls)
-    return this.form.controls;
-  }
-  
   onSubmit(): void {
     console.log(JSON.stringify(this.form.value, null, 2));
     const barbershop = this.form.value['barbershop'];

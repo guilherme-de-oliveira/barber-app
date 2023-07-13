@@ -3,6 +3,7 @@ import { TokenStorageService } from '../../services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
 import {SelectItem} from 'primeng/api';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-board-user',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./board-user.component.scss']
 })
 export class BoardUserComponent implements OnInit {
-  currentUser: any;
+  currentUser: User;
   content?: string;
   searchByName: string = '';
   barbershops:any  = [];
@@ -22,17 +23,18 @@ export class BoardUserComponent implements OnInit {
   userNotFound: boolean = false;
   constructor(
     private token: TokenStorageService,
-    private userService: UserService,
-    private tokenStorageService: TokenStorageService) { }
+    private userService: UserService) { }
   
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
+
     this.barbershopss$ = this.userService.barbershops$;
+    
     this.userService.barbershops$?.subscribe((data) => {
       console.log(data)
       this.barbershops = data;
       this.userNotFound = false;
-      
+
       if (this.barbershops[0].message) {
         this.barbershops = [];
         console.log('heijhks')
@@ -58,7 +60,7 @@ export class BoardUserComponent implements OnInit {
   }
 
   logout(): void {
-    this.tokenStorageService.signOut();
+    this.token.signOut();
     window.location.reload();
   }
 

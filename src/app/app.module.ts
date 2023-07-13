@@ -29,6 +29,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DataViewModule } from 'primeng/dataview';
 import { ChipModule } from 'primeng/chip';
 import { GalleriaModule } from 'primeng/galleria';
+import { FileUploadModule } from 'primeng/fileupload';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { BarberFormComponent } from './components/login/barber-form/barber-form.component';
@@ -75,7 +77,9 @@ import { BarberDescriptionComponent } from './components/barber-description/barb
     AutoCompleteModule,
     DataViewModule,
     ChipModule,
-    GalleriaModule
+    GalleriaModule,
+    FileUploadModule,
+    MultiSelectModule
   ],
   providers: [authInterceptorProviders ],
   bootstrap: [AppComponent]

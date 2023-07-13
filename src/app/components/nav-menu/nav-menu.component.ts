@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import contacts from '../../../assets/contacts.json';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-nav-menu',
@@ -23,7 +24,7 @@ export class NavMenuComponent implements OnInit{
     { label: `${this.barbershop}`, icon: 'pi pi-fw pi-users', routerLink: '/barber'},
     { label: `${this.contact}`, icon: 'pi pi-fw pi-phone', command: () => { this.sendScrollTo("contact")} },
   ];
-  currentUser: any;
+  currentUser: User;
 
   constructor(
     private token: TokenStorageService,

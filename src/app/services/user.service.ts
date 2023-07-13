@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject, catchError, concatAll, debounceTime, map, of, retry, retryWhen, shareReplay, tap, throwError } from 'rxjs';
+import { Observable, Subject, concatAll, debounceTime, map, retry } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 const title = environment.title;
