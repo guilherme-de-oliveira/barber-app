@@ -111,6 +111,7 @@ export class ClientFormComponent implements OnInit{
       next: data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
+        
         console.log(data)
         this.isLoginFailed = false;
         this.isLoggedIn = true;

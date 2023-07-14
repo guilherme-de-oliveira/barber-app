@@ -1,0 +1,160 @@
+<p-card class="p-card justify-content-center">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="grid">
+        <div class="field col-6 col-offset-3">
+          <div class="text-center">
+            <!-- Email -->
+            <label for="email" class="block">Email</label>
+            <span class="p-input-icon-right">
+              <i class="pi pi-envelope"></i>
+              <input
+                id="email"
+                type="email"
+                pInputText
+                name="email"
+                formControlName="email"
+                [ngClass]="{'ng-invalid ng-dirty': submitted && f['email'].errors}"/>
+              <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">
+                  <small id="email-help" class="p-error block">Email is required.</small>
+                </div>
+                <div *ngIf="f['email'].errors['email']">
+                  <small id="email-help" class="p-error block">Email is invalid</small>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+        <div class="field col-6 col-offset-3">
+          <div class="text-center">
+            <!-- Barbershop name -->
+            <label for="barbershop" class="block">Barbershop name</label>
+            <span class="p-input-icon-right">
+              <i class="pi pi-user"></i>
+              <input
+                name="barbershop"
+                pInputText
+                formControlName="barbershop"
+                [ngClass]="{'ng-invalid ng-dirty': submitted && f['barbershop'].errors}"/>
+            </span>
+            <div *ngIf="submitted && f['barbershop'].errors">
+              <div *ngIf="f['barbershop'].errors['required']">
+                <small id="barbershop-help" class="p-error block">Barbershop name is required.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="field col-6 col-offset-3">
+          <div class="text-center">
+            <!-- Phone number -->
+            <label for="phoneNumber" class="block">Phone number</label>
+            <span class="p-input-icon-right">
+              <i class="pi pi-phone"></i>
+              <input
+                id="phoneNumber"
+                type="phoneNumber"
+                pInputText
+                name="phoneNumber"
+                formControlName="phoneNumber"
+                [ngClass]="{'ng-invalid ng-dirty': submitted && f['phoneNumber'].errors}"/>
+              <div
+                *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
+                <div *ngIf="f['phoneNumber'].errors['required']">
+                  <small id="phoneNumber-help" class="p-error block">Phone number is required.</small>
+                </div>
+                <div *ngIf="f['phoneNumber'].errors['pattern']">
+                  <small id="phoneNumber-help" class="p-error block">Phone number is invalid</small>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+  
+        <div class="field col-6 col-offset-3">
+          <div class="text-center">
+            <!-- Price -->
+            <label for="price" class="block">Min. Price</label>
+            <span class="p-input-icon-right">
+              <i class="pi pi-dollar"></i>
+              <input
+                id="price"
+                type="price"
+                pInputText
+                name="price"
+                formControlName="price"
+              />
+            </span>
+          </div>
+        </div>
+  
+        <div class="field col-6 col-offset-3">
+          <div class="text-center">
+            <!-- Services -->
+            <label for="barberServices" class="block">Services</label>
+            <span class="p-input-icon-right">
+              <p-multiSelect 
+                [options]="barberServices" 
+                formControlName="barberServices" 
+                defaultLabel="Select services" 
+                display="chip">
+              </p-multiSelect>
+            </span>
+          </div>
+        </div>
+  
+        <div class="field col-6 col-offset-3">
+          <div class="text-center">
+            <!-- Address -->
+            <label for="address" class="block">Address</label>
+            <span class="p-input-icon-right">
+              <i class="pi pi-dollar"></i>
+              <input
+                id="address"
+                type="address"
+                pInputText
+                name="address"
+                formControlName="address"
+              />
+            </span>
+          </div>
+        </div>
+  
+        <div class="field col-6 col-offset-3">
+          <div class="field block">
+            <p-fileUpload
+              #uploader
+              name="demo[]"
+              (onSelect)="onImageUpload(uploader)"
+              [multiple]="true"
+              accept="image/*"
+              [maxFileSize]="1000000">
+              <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                  <li *ngFor="let file of uploadedFiles">
+                    {{ file.name }} - {{ file.size }} bytes
+                  </li>
+                </ul>
+              </ng-template>
+            </p-fileUpload>
+          </div>
+        </div>
+  
+        <div class="field col-6 col-offset-3">
+          <div>
+            <p-button label="Update My Info" (onClick)="onSubmit()"></p-button>
+            <p-button styleClass="p-button-danger ml-3" label="Cancel" (onClick)="onSubmit()"></p-button>
+          </div>
+        </div>
+      </div>
+    </form>
+  
+    <!-- <div *ngIf="isSuccessful">
+      <span>{{successMessage}}</span><br>
+      <p-button label="Log in" styleClass="p-button-link" (onClick)="reloadPage()"></p-button>
+  </div>
+  <div *ngIf="isSignUpFailed || isLoginFailed">
+      <span>{{errorMessage}}</span>
+  </div> -->
+  </p-card>
+  

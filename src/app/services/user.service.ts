@@ -36,4 +36,8 @@ export class UserService {
     console.log('searcj')
     this.subject.next(query);
   }
+
+  // getUserInfo(email: string | undefined) {
+  //   return this.http.get<any[]>(API_URL + `/details?barber=${email}`)
+  // }
 }

@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { RouterModule } from '@angular/router';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,8 +28,6 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DataViewModule } from 'primeng/dataview';
 import { ChipModule } from 'primeng/chip';
 import { GalleriaModule } from 'primeng/galleria';
-import { FileUploadModule } from 'primeng/fileupload';
-import { MultiSelectModule } from 'primeng/multiselect';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { BarberFormComponent } from './components/login/barber-form/barber-form.component';
@@ -46,7 +43,6 @@ import { BarberDescriptionComponent } from './components/barber-description/barb
     FooterComponent,
     PageNotFoundComponent,
     LoginComponent,
-    BoardAdminComponent,
     NavMenuComponent,
     BoardUserComponent,
     BarberFormComponent,
@@ -77,9 +73,7 @@ import { BarberDescriptionComponent } from './components/barber-description/barb
     AutoCompleteModule,
     DataViewModule,
     ChipModule,
-    GalleriaModule,
-    FileUploadModule,
-    MultiSelectModule
+    GalleriaModule
   ],
   providers: [authInterceptorProviders ],
   bootstrap: [AppComponent]

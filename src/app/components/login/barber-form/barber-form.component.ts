@@ -3,6 +3,8 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from '../../../services/token-storage.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-barber-form',
@@ -29,18 +31,22 @@ export class BarberFormComponent implements OnInit{
   isLoggedIn = false;
   isLoginFailed = false;
   roles: string[] = [];
+  user$: BehaviorSubject<User>;
+  user: User;
 
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private tokenStorage: TokenStorageService,
-    private router: Router) { }
+    private router: Router) { 
+      this.tokenStorage.user$.subscribe(data => this.user = data)
+    }
   
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
-      this.router.navigate(['barbershop'])
+      this.router.navigate(['barbershop']);
     }
 
     this.setFormRules();
@@ -118,13 +124,12 @@ export class BarberFormComponent implements OnInit{
       next: data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-        console.log(data)
+        this.tokenStorage.user$.next(data)
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         
         this.router.navigate(['barbershop']);
-        console.log('barbershopppp')
         // this.reloadPage();
       },
       error: err => {
