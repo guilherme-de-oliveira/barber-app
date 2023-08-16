@@ -1,0 +1,17 @@
+<p-menubar class="menubar" [model]="items">
+    <ng-template pTemplate="item" let-item let-i="index"></ng-template>
+    <ng-template pTemplate="end">
+        <div class="grid">
+            <div *ngIf="isEmptyObject(currentUser); else logOut" class="md:inline-flex sm:flex-1 sm:col-2 md:col-2 lg:col-3 ">
+                <button pButton pRipple type="button" label="Login/Signup" class="p-button-text" routerLink="login"></button>
+            </div>
+            <ng-template #logOut class="md:inline-flex sm:flex-1 sm:col-2 md:col-2 lg:col-3 ">
+                <p-button label="Log out" styleClass="p-button-link" (onClick)="logout()"></p-button>
+            </ng-template>
+        </div>
+    </ng-template>
+</p-menubar>
+<header>
+    <img src="../../../assets/images/logo-omega.png" style="width: 15em;"/>
+    <h1><span>The free barbershop app</span></h1>
+</header>

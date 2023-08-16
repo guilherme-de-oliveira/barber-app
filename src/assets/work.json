@@ -1,0 +1,67 @@
+{
+    "data": [
+        {
+            "title": "Front-end Developer - EIS",
+            "skills": [
+                {"name": "TypeScript", "icon": "typescript"},
+                {"name": "React", "icon": "react"},
+                {"name": "RxJS", "icon": "rxjs"},
+                {"name": "Docker", "icon": "docker"},
+                {"name": "Jest", "icon": "jest"}
+            ],
+            "workDescription": "Build new reusable compents using React and Ant Design for React, testing using Jest.",
+            "workItems": [
+                "Developed modern web applications using React and TypeScript, resulting in enhanced user experience;",
+                "Built new components and integrated them with API services to improve software functionality;",
+                "Utilized project management tools such as Jira, Slack and Mural to optimize team performance and reach objectives;"
+            ]
+        },
+        {
+            "title": "Software Developer - IBM",
+            "skills": [
+                {"name": "Angular", "icon": "angular"},
+                {"name": "JavaScript", "icon": "javascript"},
+                {"name": "TypeScript", "icon": "typescript"},
+                {"name": "Node.js", "icon": "nodejs"},
+                {"name": "Shell", "icon": "bash"},
+                {"name": "Linux", "icon": "linux"},
+                {"name": "C", "icon": "c"},
+                {"name": "CouchDB", "icon": "couchdb"},
+                {"name": "SQL", "icon": "sql"},
+                {"name": "Docker", "icon": "docker"},
+                {"name": "RxJS", "icon": "rxjs"},
+                {"name": "NgRX", "icon": "ngrx"},
+                {"name": "Travis CI", "icon": "travis-ci"},
+                {"name": "Jenkins", "icon": "jenkins"}
+            ],
+            "workDescription": "Developer with the aim of helping and building high value solutions using the most recent tecnology and tools. Worked on Billing, ETL, Data-Warehouse and Client Support Systems.",
+            "workItems": [
+                "Developed WEB applications with Back/Front end functionality, utilizing Node.JS microservices and participating on decisions from the architecture of the system, coding and testing;",
+                "Created and maintained Unix Shell scripts for Data Warehouse batch applications;",
+                "Developed a full-featured monitoring WEB application to generate insights and metrics, resulting in 20% cost-savings;",
+                "Collaborated with a multi-disciplinary team to convert business needs into technical specifications."
+            ]
+        },
+        {
+            "title": "Application Developer Intern- IBM",
+            "skills": [
+                {"name": "JavaScript", "icon": "javascript"},
+                {"name": "JQuery", "icon": "jquery"},
+                {"name": "PHP", "icon": "php"},
+                {"name": "Vue.js", "icon": "vue"},
+                {"name": "Node.js", "icon": "nodejs"},
+                {"name": "SQL", "icon": "sql"},
+                {"name": "Git", "icon": "git"},
+                {"name": "JSON", "icon": "json"},
+                {"name": "HTML", "icon": "html"},
+                {"name": "CSS", "icon": "css"}
+            ],
+            "workDescription": "Work on finding and developing new improvements and automation for Asset Management.",
+            "workItems": [
+                "Developed automation feature to generate QR Code tags, increasing employee productivity by 15% daily;",
+                "Engineered multiple web applications using JavaScript (JQuery), PHP and DB2;",
+                "Collaborated with stakeholders to identify opportunities for process automation, providing analysis and process documentation."
+            ]
+        }
+    ]
+}

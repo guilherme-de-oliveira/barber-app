@@ -1,0 +1,94 @@
+$background-color: #1E1E1E;
+$font-family: 'Lato', sans-serif;
+$font-color: #fff;
+
+a {
+    // color: $font-color;
+}
+
+.row {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0;
+    clear: both;
+}
+
+.row img {
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.gallery ul li {
+    float: left;
+    margin: 0 0.8771929825%;
+    overflow: hidden;
+}
+
+header {
+    background-color: $background-color;
+    // color: #fff;
+    text-align: center;
+    padding: 30px 0 120px;
+}
+
+header h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 65px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    line-height: 0.8;
+    padding-top: 50px;
+    font-family: $font-family;
+}
+
+header h1 span {
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-size: 25px;
+    line-height: 1;
+}
+
+header p {
+    padding-top: 30px;
+}
+
+// Primeng
+:host ::ng-deep {
+    .p-menubar {
+        // background-color: $background-color;
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+        border-radius: 0px;
+        font-family: $font-family;
+    }
+
+    .p-button.p-button-text {
+        // color: #fff !important;
+    }
+    .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link {
+        .p-menuitem-text {
+            // color: $font-color;
+        }
+        .p-menuitem-icon {
+            // color: $font-color;
+        }
+    }
+    .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+        // color: $font-color;
+    }
+    .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
+        // color: $font-color;
+    }
+
+    .p-menubar {
+        position: sticky;
+        position: -webkit-sticky; // Needed for Safari browsers.
+        z-index: 10000; 
+        top: 0;
+    }
+}

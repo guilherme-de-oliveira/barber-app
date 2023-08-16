@@ -1,0 +1,68 @@
+{
+    "data": [
+        {
+            "title": "Shop System",
+            "skills": [
+                {"name": "Angular", "icon": "fa-brands fa-angular"},
+                "TypeScript",
+                "RxJS",
+                "NgRx",
+                "Material UI",
+                "JSON",
+                "HTML",
+                "CSS"
+            ],
+            "workDescription": "Project to bring NgRx (Redux) State Management concept in place. For that I will implement a Shop System, with its main functionalities like cards, cart, products list, etc. This is a hands on project.",
+            "code": "https://github.com/guilherme-de-oliveira/shop-system",
+            "image": "../../../../assets/images/shop-sytem.png"
+        },
+        {
+            "title": "gRPC Login API",
+            "skills": [
+                "Node.Js",
+                "TypeScript",
+                "gRPC",
+                "API"
+            ],
+            "workDescription": "This is a gRPC API with Typescript in a Node.Js application by building a basic auth service. gRPC is a technology for implementing RPC APIs that uses HTTP 2.0 as its underlying transport protocol.",
+            "code": "https://github.com/guilherme-de-oliveira/grpc-api",
+            "image": "https://primefaces.org/cdn/primeng/images/usercard.png"
+        },
+        {
+            "title": "Api Call Debouce",
+            "skills": [
+                {"name": "Angular", "icon": "fa-brands fa-angular"},
+                "RxJS",
+                "TypeScript",
+                "HTML"
+            ],
+            "workDescription": "In order to improve the performance of your Angular, Rxjs provides some nice operators to help us working with data stream. debounceTime() is one of those operators that save us to write a custom JavaScript code yet improves the code readability, performance and fluidity. This project has the goal to implement a debounceTime Rxjs operator in a input search, where it sends an GET request to an API at debouce time.",
+            "code": "https://github.com/guilherme-de-oliveira/api-call-debouce",
+            "image": "../../../../assets/images/api-call-debouce.gif"
+        },
+        {
+            "title": "Lazy Load Angular",
+            "skills": [
+                {"name": "Angular", "icon": "fa-brands fa-angular"},
+                "TypeScript",
+                "HTML",
+                "CSS"
+            ],
+            "workDescription": "Build a Angular app using the Lazy Loading Principle. Lazy Loading gives an application the skill to load only the Module needed per time. It will only load Module B once the button is clicked.",
+            "code": "https://github.com/guilherme-de-oliveira/lazy-load-demo",
+            "image": "../../../../assets/images/lazy-load.png"
+        },
+        {
+            "title": "Event Emmiters",
+            "skills": [
+                "Node.Js",
+                "TypeScript",
+                "API",
+                "SQL"
+            ],
+            "workDescription": "A Node.js ticket service application using Event Emitters. The EventEmitter is a module that facilitates communication/interaction between objects in Node. EventEmitter is at the core of Node asynchronous event-driven architecture.",
+            "code": "https://github.com/guilherme-de-oliveira/grpc-api",
+            "image": "../../../../assets/images/event-emitters.png"
+        }
+    ]
+}

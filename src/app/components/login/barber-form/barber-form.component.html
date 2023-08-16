@@ -1,0 +1,114 @@
+<form *ngIf="!isSuccessful" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="" *ngIf="formType == 'login'; else elseBlock">
+        <h3>Log in as <span class="text-primary">Barber</span></h3>
+    </div>
+    <ng-template #elseBlock>
+        <div class="">
+            <h3>Sign Up as <span class="text-primary">Barber</span></h3>
+        </div>
+    </ng-template>
+    
+    <div class="field text-center">
+        <!-- Email -->
+        <label for="email" class="block">Email</label>
+        <span class="p-input-icon-right">
+            <i class="pi pi-envelope"></i>
+            <input id="email" type="email" pInputText name="email" formControlName="email"
+                [ngClass]="{'ng-invalid ng-dirty': submitted && f['email'].errors}" />
+
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">
+                    <small id="email-help" class="p-error block">Email is required.</small>
+                </div>
+                <div *ngIf="f['email'].errors['email']">
+                    <small id="email-help" class="p-error block">Email is invalid</small>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <div *ngIf="formType == 'signup'" class="field text-center">
+        <!-- Barbershop name -->
+        <label for="barbershop" class="block">Barbershop name</label>
+        <span class="p-input-icon-right">
+            <i class="pi pi-user"></i>
+            <input name="barbershop" pInputText formControlName="barbershop"
+                [ngClass]="{'ng-invalid ng-dirty': submitted && f['barbershop'].errors}" />
+        </span>
+        <div *ngIf="submitted && f['barbershop'].errors">
+            <div *ngIf="f['barbershop'].errors['required']">
+                <small id="barbershop-help" class="p-error block">Barbershop name is required.</small>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="formType == 'signup'" class="field text-center">
+        <!-- Phone number -->
+        <label for="phoneNumber" class="block">Phone number</label>
+        <span class="p-input-icon-right">
+            <i class="pi pi-phone"></i>
+            <input id="phoneNumber" type="phoneNumber" pInputText name="phoneNumber" formControlName="phoneNumber"
+                [ngClass]="{'ng-invalid ng-dirty': submitted && f['phoneNumber'].errors}" />
+
+            <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
+                <div *ngIf="f['phoneNumber'].errors['required']">
+                    <small id="phoneNumber-help" class="p-error block">Phone number is required.</small>
+                </div>
+                <div *ngIf="f['phoneNumber'].errors['pattern']">
+                    <small id="phoneNumber-help" class="p-error block">Phone number is invalid</small>
+                </div>
+            </div>
+        </span>
+    </div>
+
+    <div class="field text-center">
+        <!-- <label for="password" class="block">Password</label>
+        <p-password #password [feedback]="formType == 'signup'" [toggleMask]="true" name="password"
+            formControlName="password" [ngClass]="{'ng-invalid ng-dirty': submitted && f['password'].errors}"></p-password> -->
+
+        <!-- Password -->
+        <label for="password" class="block">Password</label>
+        <span class="p-input-icon-right">
+            <i style="cursor: pointer" [ngClass]="password.type == 'password' ? 'pi pi-eye' : 'pi pi-eye-slash'"
+                (click)="password.type = password.type == 'password' ? 'text' : 'password'">
+            </i>
+            <input type="password" formControlName="password" [feedback]="false" pPassword #password name="password" />
+        </span>
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors['required']">
+                <small id="password-help" class="p-error block">Password is required</small>
+            </div>
+            <div *ngIf="f['password'].errors['minlength']">
+                <small id="password-help" class="p-error block">Password must be at least 10 characters</small>
+            </div>
+            <div *ngIf="f['password'].errors['maxlength']">
+                <small id="password-help" class="p-error block">Password must not exceed 40 characters</small>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="formType == 'login'; else elseBlock2">
+        <p-button label="Log in" (onClick)="onSubmit()"></p-button>
+    </div>
+    <ng-template #elseBlock2>
+        <p-button label="Sign Up" (onClick)="onSubmit()"></p-button>
+    </ng-template>
+    <div class="text-center" *ngIf="formType == 'login'; else elseBlock3">
+        <button [style]="{'margin-top': '1em'}" pButton pRipple type="button" label="No account? Create one"
+            class="p-button-text" (click)="formType = 'signup'"></button>
+    </div>
+    <ng-template #elseBlock3>
+        <div class="text-center">
+            <button [style]="{'margin-top': '1em'}" pButton pRipple type="button" label="Have an account? Log in"
+                class="p-button-text" (click)="formType = 'login'"></button>
+        </div>
+    </ng-template>
+</form>
+
+<div *ngIf="isSuccessful">
+    <span>{{successMessage}}</span><br>
+    <p-button label="Log in" styleClass="p-button-link" (onClick)="reloadPage()"></p-button>
+</div>
+<div *ngIf="isSignUpFailed || isLoginFailed">
+    <span>{{errorMessage}}</span>
+</div>
