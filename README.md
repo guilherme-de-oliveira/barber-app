@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Node: 16.20.0
 - Package Manager: npm 8.19.4
 
+***** The app can be accessed at: https://barber-app-guilherme-de-oliveira.vercel.app/main ********
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
