@@ -26,7 +26,5 @@ describe('NavMenuComponent', () => {
     MockRender(NavMenuComponent).point.componentInstance;
 
     expect(component).toBeTruthy();
-    console.log('eitaaaaa')
-    console.log(component)
   });
 });

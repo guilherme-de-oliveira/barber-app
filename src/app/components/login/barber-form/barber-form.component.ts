@@ -95,7 +95,6 @@ export class BarberFormComponent implements OnInit{
   }
 
   onSubmit(): void {
-    console.log(JSON.stringify(this.form.value, null, 2));
     const barbershop = this.form.value['barbershop'];
     const email = this.form.value['email'];
     const phoneNumber = this.form.value['phoneNumber'];
@@ -104,22 +103,7 @@ export class BarberFormComponent implements OnInit{
     (this.formType == 'login') ? this.login(email, password) : this.signUp(barbershop, email, phoneNumber, password);
   }
 
-  // formatData():Array<string> {
-  //   if (this.form.invalid) {
-  //     console.error('No values found.')
-  //     return [];
-  //   }
-
-  //   const username = this.form.value['username'];
-  //   const email = this.form.value['email'];
-  //   const password = this.form.value['password'];
-    
-  //   return (this.formType == 'login') ? [username, password] : [username, email, password]
-  // }
-
   login(email: string, password: string) {
-    console.log('login')
-
     this.authService.login(this.loginType, email, password).subscribe({
       next: data => {
         this.tokenStorage.saveToken(data.accessToken);
@@ -140,12 +124,10 @@ export class BarberFormComponent implements OnInit{
   }
 
   signUp(username: string, email: string, phoneNumber: string, password: string) {
-    console.log('sign up');
     this.submitted = true;
 
     this.authService.register(this.loginType, username, email, phoneNumber, password).subscribe({
       next: data => {
-        console.log(data);
         this.successMessage = data.message;
         this.isSuccessful = true;
         this.isSignUpFailed = false;

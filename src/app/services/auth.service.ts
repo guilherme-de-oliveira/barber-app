@@ -4,9 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const title = environment.title;
-console.log('Environment: ' + title);
-
 const AUTH_API = `${API_URL}/api/auth/`;
 
 const httpOptions = {
@@ -20,7 +17,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(loginType: string, email: string, password: string): Observable<any> {
-    console.log(AUTH_API)
     return this.http.post(AUTH_API + 'signin', {
       loginType,
       email,

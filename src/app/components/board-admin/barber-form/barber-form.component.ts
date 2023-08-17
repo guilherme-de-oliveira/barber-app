@@ -108,8 +108,6 @@ export class BarberFormComponent implements OnInit {
   }
   
   onSubmit(): void {
-    console.log(JSON.stringify(this.form.value, null, 2));
-    console.log(this.form.value);
     const user = this.form.value;
     const barbershop = this.form.value['barbershop'];
     const email = this.form.value['email'];
@@ -120,14 +118,11 @@ export class BarberFormComponent implements OnInit {
   }
 
   updateBarber(user: User) {
-    console.log('update service');
-    console.log(user)
     this.barberService.updateBarber(user)
   }
 
   onImageUpload(uploader: any) {
     this.uploadedFiles = uploader._files
-    console.log(this.uploadedFiles)
   }
 
 }

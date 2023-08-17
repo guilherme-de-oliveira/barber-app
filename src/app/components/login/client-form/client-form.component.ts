@@ -77,12 +77,10 @@ export class ClientFormComponent implements OnInit{
   }
 
   get f(): { [key: string]: AbstractControl } {
-    // console.log(this.form.controls)
     return this.form.controls;
   }
   
   onSubmit(): void {
-    console.log(JSON.stringify(this.form.value, null, 2));
     const clientName = this.form.value['clientName'];
     const phoneNumber = this.form.value['phoneNumber'];
     const email = this.form.value['email'];
@@ -91,28 +89,12 @@ export class ClientFormComponent implements OnInit{
     (this.formType == 'login') ? this.login(email, password) : this.signUp(clientName, email, phoneNumber, password);
   }
 
-  // formatData():Array<string> {
-  //   if (this.form.invalid) {
-  //     console.error('No values found.')
-  //     return [];
-  //   }
-
-  //   const username = this.form.value['username'];
-  //   const email = this.form.value['email'];
-  //   const password = this.form.value['password'];
-    
-  //   return (this.formType == 'login') ? [username, password] : [username, email, password]
-  // }
-
   login(email: string, password: string) {
-    console.log('login ', password)
-
     this.authService.login(this.loginType, email, password).subscribe({
       next: data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
         
-        console.log(data)
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
@@ -129,12 +111,10 @@ export class ClientFormComponent implements OnInit{
   }
 
   signUp(clientName: string, email: string, phoneNumber: string, password: string) {
-    console.log('sign up');
     this.submitted = true;
 
     this.authService.register(this.loginType, clientName, email, phoneNumber, password).subscribe({
       next: data => {
-        console.log(data);
         this.successMessage = data.message;
         this.isSuccessful = true;
         this.isSignUpFailed = false;

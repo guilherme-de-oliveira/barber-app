@@ -34,15 +34,9 @@ export class NavMenuComponent implements OnInit{
     @Inject(LOCALE_ID) public activeLocale: string,
     private router: Router,
     public tokenService: TokenStorageService
-  ) {
-    
-    console.log('cosntructor')
-  }
+  ) {}
   
   ngOnInit(): void {
-
-    // this.currentUser = this.token.getUser();
-    console.log(this.currentUser)
     this.tokenService.user$.subscribe(data => this.currentUser = data);
   }
 
@@ -67,8 +61,6 @@ export class NavMenuComponent implements OnInit{
   }
 
   isEmptyObject(obj: any) {
-    console.log(obj)
-    
     return !!(Object.keys(obj).length === 0 || obj.email === "")
   }
 

@@ -9,12 +9,10 @@ export function canActivate(): CanActivateFn {
         const tokenStorageService: TokenStorageService = inject(TokenStorageService);
 
         if (!tokenStorageService.getToken()) {
-            console.log("User not logged in.");
-
             router.navigate(["login"]);
             return false;
         }
-        console.log('eita: ', tokenStorageService.getToken())
+
         return true;
     }
 }

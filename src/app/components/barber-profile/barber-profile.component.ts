@@ -16,7 +16,6 @@ export class BarberProfileComponent {
     this.activatedRoute.paramMap.subscribe(params => {
       const aux = params.get('barber');
       this.barber = JSON.parse(String(aux));
-      console.log(this.barber)
     });
   }
 }

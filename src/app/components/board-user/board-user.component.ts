@@ -31,7 +31,6 @@ export class BoardUserComponent implements OnInit {
     this.barbershopss$ = this.userService.barbershops$;
     
     this.userService.barbershops$?.subscribe((data) => {
-      console.log(data)
       this.barbershops = data;
       this.userNotFound = false;
 
@@ -45,17 +44,6 @@ export class BoardUserComponent implements OnInit {
       {label: 'Name Asc', value: '!username'},
       {label: 'Name Desc', value: 'username'}
     ];
-
-    // this.userService.getPublicContent().subscribe({
-    //   next: data => {
-    //     this.content = data;
-    //     console.log(this.content)
-    //   },
-    //   error: err => {
-    //     console.log(err)
-    //     this.content = err.error;
-    //   }
-    // });
   }
 
   logout(): void {
@@ -68,7 +56,6 @@ export class BoardUserComponent implements OnInit {
   }
 
   search(query: any) {
-    console.log(query)
     this.userService.search(query.target.value);
   }
 
